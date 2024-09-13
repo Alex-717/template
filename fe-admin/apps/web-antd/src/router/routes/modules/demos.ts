@@ -7,7 +7,7 @@ const routes: RouteRecordRaw[] = [
   {
     component: BasicLayout,
     meta: {
-      icon: 'ic:baseline-view-in-ar',
+      icon: 'lucide:rss',
       keepAlive: true,
       order: 1000,
       title: $t('page.demos.title'),

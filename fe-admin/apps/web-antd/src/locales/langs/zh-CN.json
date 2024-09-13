@@ -3,6 +3,10 @@
     "demos": {
       "title": "演示",
       "antd": "Ant Design Vue"
+    },
+    "blogs": {
+      "title": "博客",
+      "antd": "博客列表页"
     }
   }
 }
