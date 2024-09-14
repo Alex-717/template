@@ -6,7 +6,10 @@
     },
     "blogs": {
       "title": "博客",
-      "antd": "博客列表页"
+      "blogList": "博客列表页",
+      "blogEdit": "编辑博客",
+      "blogNew": "新增博客",
+      "blogModify": "修改博客"
     }
   }
 }

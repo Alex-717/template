@@ -17,12 +17,69 @@ const routes: RouteRecordRaw[] = [
     children: [
       {
         meta: {
-          title: $t('page.blogs.antd'),
+          title: $t('page.blogs.blogList')
         },
         name: 'blogList',
         path: '/blog/list',
         component: () => import('#/views/blogs/list.vue'),
       },
+      {
+        meta: {
+          title: $t('page.blogs.blogEdit'),
+          hideInBreadcrumb: true,
+          hideInMenu: true,
+          hideInTab: true
+        },
+        name: 'blogEdit',
+        path: '/blog/edit',
+        children: [
+          {
+            meta: {
+              title: $t('page.blogs.blogNew'),
+              hideInBreadcrumb: true,
+              hideInMenu: true,
+              hideInTab: true
+            },
+            name: 'blogNew',
+            path: '/blog/edit/new',
+            component: () => import('#/views/blogs/edit.vue')
+          },
+          {
+            meta: {
+              title: $t('page.blogs.blogModify'),
+              hideInBreadcrumb: true,
+              hideInMenu: true,
+              hideInTab: true,
+              isModify: true
+            },
+            name: 'blogModify',
+            path: '/blog/edit/modify/:id',
+            component: () => import('#/views/blogs/edit.vue')
+          }
+        ]
+      },
+      // {
+      //   meta: {
+      //     title: $t('page.blogs.blogNew'),
+      //     hideInBreadcrumb: true,
+      //     hideInMenu: true,
+      //     hideInTab: true
+      //   },
+      //   name: 'blogNew',
+      //   path: '/blog/edit/new',
+      //   component: () => import('#/views/blogs/detail.vue')
+      // },
+      // {
+      //   meta: {
+      //     title: $t('page.blogs.blogModify'),
+      //     hideInBreadcrumb: true,
+      //     hideInMenu: true,
+      //     hideInTab: true
+      //   },
+      //   name: 'blogModify',
+      //   path: '/blog/edit/modify/:id',
+      //   component: () => import('#/views/blogs/detail.vue')
+      // }
     ],
   },
 ];

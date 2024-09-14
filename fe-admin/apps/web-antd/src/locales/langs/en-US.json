@@ -6,7 +6,10 @@
     },
     "blogs": {
       "title": "Blog",
-      "antd": "Blog List"
+      "blogList": "Blog List",
+      "blogEdit": "Blog Edit",
+      "blogNew": "Blog New",
+      "blogModify": "Blog Modify"
     }
   }
 }

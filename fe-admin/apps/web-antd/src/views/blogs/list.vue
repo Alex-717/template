@@ -4,7 +4,7 @@
       <Form :label-col="{ style: { width: '80px' }  }">
         <Row class="flex flex-row justify-between">
           <Col :span="11">
-            <FormItem label="博客名">
+            <FormItem label="博客标题">
               <Input v-model:value="form.name" />
             </FormItem>
           </Col>
@@ -25,8 +25,8 @@
       <Table :columns="tableHead" :data-source="blogList" bordered>
         <template #action="{ record }">
           <Space>
-            <Button type="primary" @click="editBlog">编辑</Button>
-            <Button type="primary" danger @click="deleteBlog">删除</Button>
+            <Button type="primary" @click="modifyBlog(record)">修改</Button>
+            <Button type="primary" danger @click="deleteBlog(record)">删除</Button>
           </Space>
         </template>
       </Table>
@@ -48,6 +48,9 @@ import { Page } from '@vben/common-ui'
 import { Button, Card, message, Space, Row, Col, Form, FormItem, Input, Table, Modal } from 'ant-design-vue';
 import { ref, reactive } from 'vue'
 import { useTips } from '#/hooks'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const { showTips, showErrTips, showSuccTips } = useTips()
 
@@ -63,7 +66,7 @@ const tableHead = reactive([
     key: 'id'
   },
   {
-    title: '博客名',
+    title: '博客标题',
     dataIndex: 'name',
     key: 'name'
   },
@@ -101,12 +104,15 @@ const blogList = reactive([
 
 function newBlog () {
   console.log('newBlog')
+  router.push({ path: '/blog/edit/new' })
 }
 function searchBlog () {
   console.log('searchBlog')
 }
-function editBlog () {
-  console.log('editBlog')
+function modifyBlog (record) {
+  console.log('modifyBlog')
+  const { id } = record
+  router.push({ path: '/blog/edit/modify/' + id })
 }
 function deleteBlog () {
   console.log('deleteBlog')
